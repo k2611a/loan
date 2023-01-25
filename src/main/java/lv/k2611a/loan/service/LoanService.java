@@ -1,4 +1,4 @@
-package lv.k2611a.visma.service;
+package lv.k2611a.loan.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -6,8 +6,8 @@ import java.time.Period;
 
 import org.springframework.stereotype.Component;
 
-import lv.k2611a.visma.domain.LoanPaymentPlan;
-import lv.k2611a.visma.domain.LoanType;
+import lv.k2611a.loan.domain.LoanPaymentPlan;
+import lv.k2611a.loan.domain.LoanType;
 
 @Component
 public class LoanService {

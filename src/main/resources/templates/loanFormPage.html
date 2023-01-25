@@ -19,7 +19,7 @@
         <div class="form-group mb-3">
             <label for="loanType">Loan type</label>
             <select class="form-select" name="loanType" id="loanType">
-                <option th:each="loanType : ${T(lv.k2611a.visma.domain.LoanType).values()}"
+                <option th:each="loanType : ${T(lv.k2611a.loan.domain.LoanType).values()}"
                         th:value="${loanType}" th:text="${loanType}"></option>
             </select>
         </div>

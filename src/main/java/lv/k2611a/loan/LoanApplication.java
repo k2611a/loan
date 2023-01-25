@@ -1,13 +1,13 @@
-package lv.k2611a.visma;
+package lv.k2611a.loan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VismaApplication {
+public class LoanApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VismaApplication.class, args);
+		SpringApplication.run(LoanApplication.class, args);
 	}
 
 }

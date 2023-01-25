@@ -1,4 +1,4 @@
-package lv.k2611a.visma.service;
+package lv.k2611a.loan.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import lv.k2611a.visma.domain.LoanPaymentPlan;
-import lv.k2611a.visma.domain.LoanPaymentPlanEntry;
+import lv.k2611a.loan.domain.LoanPaymentPlan;
+import lv.k2611a.loan.domain.LoanPaymentPlanEntry;
 
 public class EvenPrincipalPaymentStrategy implements PaymentStrategy {
 

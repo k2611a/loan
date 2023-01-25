@@ -1,4 +1,4 @@
-package lv.k2611a.visma.service;
+package lv.k2611a.loan.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,9 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import lv.k2611a.visma.domain.LoanPaymentPlan;
-import lv.k2611a.visma.domain.LoanPaymentPlanEntry;
-import lv.k2611a.visma.domain.LoanType;
+import lv.k2611a.loan.domain.LoanPaymentPlan;
+import lv.k2611a.loan.domain.LoanPaymentPlanEntry;
+import lv.k2611a.loan.domain.LoanType;
 
 
 class LoanServiceTest {

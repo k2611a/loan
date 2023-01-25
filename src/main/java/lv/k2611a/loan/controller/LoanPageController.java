@@ -1,4 +1,4 @@
-package lv.k2611a.visma.controller;
+package lv.k2611a.loan.controller;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import lv.k2611a.visma.domain.LoanPaymentPlan;
-import lv.k2611a.visma.domain.LoanType;
-import lv.k2611a.visma.service.LoanService;
+import lv.k2611a.loan.domain.LoanPaymentPlan;
+import lv.k2611a.loan.domain.LoanType;
+import lv.k2611a.loan.service.LoanService;
 
 @Controller
 public class LoanPageController {

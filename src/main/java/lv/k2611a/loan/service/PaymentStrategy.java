@@ -1,9 +1,9 @@
-package lv.k2611a.visma.service;
+package lv.k2611a.loan.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import lv.k2611a.visma.domain.LoanPaymentPlan;
+import lv.k2611a.loan.domain.LoanPaymentPlan;
 
 public interface PaymentStrategy {
 

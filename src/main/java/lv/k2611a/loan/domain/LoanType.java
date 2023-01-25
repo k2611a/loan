@@ -1,4 +1,4 @@
-package lv.k2611a.visma.domain;
+package lv.k2611a.loan.domain;
 
 import java.math.BigDecimal;
 
