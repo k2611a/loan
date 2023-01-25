@@ -1,5 +1,6 @@
 package lv.k2611a.visma.domain;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,22 @@ public class LoanPaymentPlan {
 
     public List<LoanPaymentPlanEntry> getPlanEntryList() {
         return planEntryList;
+    }
+
+    public BigDecimal getPrincipalPaymentAmount() {
+        BigDecimal result = BigDecimal.ZERO;
+        for (LoanPaymentPlanEntry loanPaymentPlanEntry : planEntryList) {
+            result = result.add(loanPaymentPlanEntry.getPrincipalPaymentAmount());
+        }
+        return result;
+    }
+
+    public BigDecimal getInterestPaymentAmount() {
+        BigDecimal result = BigDecimal.ZERO;
+        for (LoanPaymentPlanEntry loanPaymentPlanEntry : planEntryList) {
+            result = result.add(loanPaymentPlanEntry.getInterestPaymentAmount());
+        }
+        return result;
     }
 
     @Override

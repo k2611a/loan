@@ -16,8 +16,6 @@ import lv.k2611a.visma.domain.LoanType;
 @Component
 public class LoanService {
 
-    private static final BigDecimal YEARLY_INTEREST_RATE = new BigDecimal("0.035");
-
 
     public LoanPaymentPlan calculatePaymentPlay(
             LoanType loanType,
@@ -25,6 +23,7 @@ public class LoanService {
             int loanPeriodInYears,
             LocalDate paymentStartDate
     ) {
+
         Period loanPeriod = Period.ofYears(loanPeriodInYears);
         long loanPeriodInMonth = loanPeriod.toTotalMonths();
 
@@ -39,7 +38,9 @@ public class LoanService {
         while (loanAmount.compareTo(BigDecimal.ZERO) > 0) {
             LocalDate paymentDate = paymentStartDate.plusMonths(monthsPassed);
             BigDecimal principalPaymentAmount = precalculatedMonthlyPayment.min(loanAmount);
-            BigDecimal interestPaymentAmount = loanAmount.multiply(YEARLY_INTEREST_RATE).divide(new BigDecimal(12), 2, RoundingMode.UP);
+            BigDecimal interestPaymentAmount = loanAmount
+                    .multiply(loanType.getYearlyInterestRate())
+                    .divide(new BigDecimal(12), 2, RoundingMode.UP);
 
             loanAmount = loanAmount.subtract(principalPaymentAmount);
 

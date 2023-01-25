@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lv.k2611a.visma.domain.LoanPaymentPlan;
 import lv.k2611a.visma.domain.LoanType;
 import lv.k2611a.visma.service.LoanService;
 
@@ -32,16 +33,21 @@ public class LoanPageController {
             @RequestParam(name = "years") int loanLengthYears,
             @RequestParam(value = "loanAmount", required = true) BigDecimal loanAmount
     ) {
+        LoanPaymentPlan loanPaymentPlan = loanService
+                .calculatePaymentPlay(
+                        LoanType.HOUSING,
+                        loanAmount,
+                        loanLengthYears,
+                        LocalDate.now()
+                );
         model.addAttribute(
                 "loanEntries",
-                loanService
-                        .calculatePaymentPlay(
-                                LoanType.HOUSING,
-                                loanAmount,
-                                loanLengthYears,
-                                LocalDate.now()
-                        )
+                loanPaymentPlan
                         .getPlanEntryList()
+        );
+        model.addAttribute(
+                "loanPaymentPlan",
+                loanPaymentPlan
         );
         return "loanTablePage";
     }
