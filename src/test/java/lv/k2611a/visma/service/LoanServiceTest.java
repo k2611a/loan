@@ -60,6 +60,35 @@ class LoanServiceTest {
     }
 
     @Test
+    public void oneYearPaymentPlanCar() {
+        Assertions.assertEquals(
+                new LoanPaymentPlan(
+                        List.of(
+                                entry(2023, 1, 1, 83.34, 5.84, 916.66),
+                                entry(2023, 2, 1, 83.34, 5.35, 833.32),
+                                entry(2023, 3, 1, 83.34, 4.87, 749.98),
+                                entry(2023, 4, 1, 83.34, 4.38, 666.64),
+
+                                entry(2023, 5, 1, 83.34, 3.89, 583.30),
+                                entry(2023, 6, 1, 83.34, 3.41, 499.96),
+                                entry(2023, 7, 1, 83.34, 2.92, 416.62),
+                                entry(2023, 8, 1, 83.34, 2.44, 333.28),
+
+                                entry(2023, 9, 1, 83.34, 1.95, 249.94),
+                                entry(2023, 10, 1, 83.34, 1.46, 166.60),
+                                entry(2023, 11, 1, 83.34, 0.98, 83.26),
+                                entry(2023, 12, 1, 83.26, 0.49, 0))
+                ),
+                loanService.calculatePaymentPlay(
+                        LoanType.CAR,
+                        new BigDecimal(1000),
+                        1,
+                        LocalDate.of(2023, 1, 1)
+                )
+        );
+    }
+
+    @Test
     public void twoYearPlan() {
         Assertions.assertEquals(
                 new LoanPaymentPlan(

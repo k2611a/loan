@@ -15,6 +15,15 @@
 
 <div class="container">
     <form action="/calculateLoan" method="post">
+
+        <div class="form-group mb-3">
+            <label for="loanType">Loan type</label>
+            <select class="form-select" name="loanType" id="loanType">
+                <option th:each="loanType : ${T(lv.k2611a.visma.domain.LoanType).values()}"
+                        th:value="${loanType}" th:text="${loanType}"></option>
+            </select>
+        </div>
+
         <div class="form-group mb-3">
             <label for="loanAmount">Loan amount</label>
             <input type="number"
@@ -26,6 +35,7 @@
                    value="100000"
             >
         </div>
+
         <div class="form-group mb-3">
 
             <label for="loanLengthYears">Loan length in years</label>

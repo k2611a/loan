@@ -30,12 +30,13 @@ public class LoanPageController {
     @PostMapping("/calculateLoan")
     public String loanTablePage(
             Model model,
+            @RequestParam(name = "loanType") LoanType loanType,
             @RequestParam(name = "years") int loanLengthYears,
             @RequestParam(value = "loanAmount", required = true) BigDecimal loanAmount
     ) {
         LoanPaymentPlan loanPaymentPlan = loanService
                 .calculatePaymentPlay(
-                        LoanType.HOUSING,
+                        loanType,
                         loanAmount,
                         loanLengthYears,
                         LocalDate.now()
