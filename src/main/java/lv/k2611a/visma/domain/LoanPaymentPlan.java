@@ -2,6 +2,7 @@ package lv.k2611a.visma.domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class LoanPaymentPlan {
 
@@ -15,6 +16,21 @@ public class LoanPaymentPlan {
 
     public List<LoanPaymentPlanEntry> getPlanEntryList() {
         return planEntryList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LoanPaymentPlan that = (LoanPaymentPlan) o;
+
+        return Objects.equals(planEntryList, that.planEntryList);
+    }
+
+    @Override
+    public int hashCode() {
+        return planEntryList != null ? planEntryList.hashCode() : 0;
     }
 
     @Override
