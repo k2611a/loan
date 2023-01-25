@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
 
 public class LoanPaymentPlan {
 
@@ -20,17 +21,21 @@ public class LoanPaymentPlan {
     }
 
     public BigDecimal getPrincipalPaymentAmount() {
-        BigDecimal result = BigDecimal.ZERO;
-        for (LoanPaymentPlanEntry loanPaymentPlanEntry : planEntryList) {
-            result = result.add(loanPaymentPlanEntry.getPrincipalPaymentAmount());
-        }
-        return result;
+        return sumEntries(LoanPaymentPlanEntry::getPrincipalPaymentAmount);
     }
 
     public BigDecimal getInterestPaymentAmount() {
+        return sumEntries(LoanPaymentPlanEntry::getInterestPaymentAmount);
+    }
+
+    public BigDecimal getTotalPaymentAmount() {
+        return sumEntries(LoanPaymentPlanEntry::getTotalPaymentAmount);
+    }
+
+    private BigDecimal sumEntries(Function<LoanPaymentPlanEntry, BigDecimal> fieldGetter) {
         BigDecimal result = BigDecimal.ZERO;
         for (LoanPaymentPlanEntry loanPaymentPlanEntry : planEntryList) {
-            result = result.add(loanPaymentPlanEntry.getInterestPaymentAmount());
+            result = result.add(fieldGetter.apply(loanPaymentPlanEntry));
         }
         return result;
     }

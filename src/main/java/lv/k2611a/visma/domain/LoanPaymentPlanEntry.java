@@ -39,6 +39,10 @@ public class LoanPaymentPlanEntry {
         return interestPaymentAmount;
     }
 
+    public BigDecimal getTotalPaymentAmount() {
+        return interestPaymentAmount.add(principalPaymentAmount);
+    }
+
     public BigDecimal getAmountLeft() {
         return amountLeft;
     }

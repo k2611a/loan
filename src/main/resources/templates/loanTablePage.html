@@ -28,6 +28,7 @@
         <td><span th:text="${loanEntry.paymentDate}">Payment date</span></td>
         <td><span th:text="${loanEntry.principalPaymentAmount}">Principal payment amount</span></td>
         <td><span th:text="${loanEntry.interestPaymentAmount}">Interest payment amount</span></td>
+        <td><span th:text="${loanEntry.totalPaymentAmount}">Total payment amount</span></td>
         <td><span th:text="${loanEntry.amountLeft}">Amount left</span></td>
     </tr>
 
@@ -37,6 +38,7 @@
         <td></span></td>
         <td><span th:text="${loanPaymentPlan.principalPaymentAmount}">Principal payment amount</span></td>
         <td><span th:text="${loanPaymentPlan.interestPaymentAmount}">Interest payment amount</span></td>
+        <td><span th:text="${loanPaymentPlan.totalPaymentAmount}">Total payment amount</span></td>
         <td></td>
     </tr>
     </tfoot>
