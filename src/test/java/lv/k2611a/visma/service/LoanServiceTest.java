@@ -21,7 +21,7 @@ class LoanServiceTest {
     public void emptyLoan() {
         Assertions.assertEquals(
                 LoanPaymentPlan.EMPTY,
-                loanService.calculatePaymentPlay(
+                loanService.calculatePaymentPlan(
                         LoanType.HOUSING,
                         BigDecimal.ZERO,
                         30,
@@ -50,7 +50,7 @@ class LoanServiceTest {
                                 entry(2023, 11, 1, 10_000, 58.34, 10_000),
                                 entry(2023, 12, 1, 10_000, 29.17, 0))
                 ),
-                loanService.calculatePaymentPlay(
+                loanService.calculatePaymentPlan(
                         LoanType.HOUSING,
                         new BigDecimal(120_000),
                         1,
@@ -79,7 +79,7 @@ class LoanServiceTest {
                                 entry(2023, 11, 1, 83.34, 0.98, 83.26),
                                 entry(2023, 12, 1, 83.26, 0.49, 0))
                 ),
-                loanService.calculatePaymentPlay(
+                loanService.calculatePaymentPlan(
                         LoanType.CAR,
                         new BigDecimal(1000),
                         1,
@@ -125,7 +125,7 @@ class LoanServiceTest {
 
 
                 ),
-                loanService.calculatePaymentPlay(
+                loanService.calculatePaymentPlan(
                         LoanType.HOUSING,
                         new BigDecimal(1000),
                         2,

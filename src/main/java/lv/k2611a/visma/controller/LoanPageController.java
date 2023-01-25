@@ -35,7 +35,7 @@ public class LoanPageController {
             @RequestParam(value = "loanAmount", required = true) BigDecimal loanAmount
     ) {
         LoanPaymentPlan loanPaymentPlan = loanService
-                .calculatePaymentPlay(
+                .calculatePaymentPlan(
                         loanType,
                         loanAmount,
                         loanLengthYears,
