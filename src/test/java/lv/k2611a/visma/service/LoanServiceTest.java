@@ -59,19 +59,65 @@ class LoanServiceTest {
         );
     }
 
+    @Test
+    public void twoYearPlan() {
+        Assertions.assertEquals(
+                new LoanPaymentPlan(
+                        List.of(
+                                entry(2023, 1, 1, 41.67, 2.92, 958.33),
+                                entry(2023, 2, 1, 41.67, 2.80, 916.66),
+                                entry(2023, 3, 1, 41.67, 2.68, 874.99),
+                                entry(2023, 4, 1, 41.67, 2.56, 833.32),
+
+                                entry(2023, 5, 1, 41.67, 2.44, 791.65),
+                                entry(2023, 6, 1, 41.67, 2.31, 749.98),
+                                entry(2023, 7, 1, 41.67, 2.19, 708.31),
+                                entry(2023, 8, 1, 41.67, 2.07, 666.64),
+
+                                entry(2023, 9, 1, 41.67, 1.95, 624.97),
+                                entry(2023, 10, 1, 41.67, 1.83, 583.30),
+                                entry(2023, 11, 1, 41.67, 1.71, 541.63),
+                                entry(2023, 12, 1, 41.67, 1.58, 499.96),
+
+                                entry(2024, 1, 1, 41.67, 1.46, 458.29),
+                                entry(2024, 2, 1, 41.67, 1.34, 416.62),
+                                entry(2024, 3, 1, 41.67, 1.22, 374.95),
+                                entry(2024, 4, 1, 41.67, 1.10, 333.28),
+
+                                entry(2024, 5, 1, 41.67, 0.98, 291.61),
+                                entry(2024, 6, 1, 41.67, 0.86, 249.94),
+                                entry(2024, 7, 1, 41.67, 0.73, 208.27),
+                                entry(2024, 8, 1, 41.67, 0.61, 166.60),
+
+                                entry(2024, 9, 1, 41.67, 0.49, 124.93),
+                                entry(2024, 10, 1, 41.67, 0.37, 83.26),
+                                entry(2024, 11, 1, 41.67, 0.25, 41.59),
+                                entry(2024, 12, 1, 41.59, 0.13, 0.0))
+
+
+                ),
+                loanService.calculatePaymentPlay(
+                        LoanType.HOUSING,
+                        new BigDecimal(1000),
+                        2,
+                        LocalDate.of(2023, 1, 1)
+                )
+        );
+    }
+
     private static LoanPaymentPlanEntry entry(
             int year,
             int month,
             int day,
-            int principalValue,
+            double principalValue,
             double interestValue,
-            int amountLeft
+            double amountLeft
     ) {
         return new LoanPaymentPlanEntry(
                 LocalDate.of(year, month, day),
-                new BigDecimal(principalValue).setScale(2, RoundingMode.UP),
-                BigDecimal.valueOf(interestValue).setScale(2, RoundingMode.UP),
-                new BigDecimal(amountLeft).setScale(2, RoundingMode.UP)
+                BigDecimal.valueOf(principalValue).setScale(2, RoundingMode.DOWN),
+                BigDecimal.valueOf(interestValue).setScale(2, RoundingMode.DOWN),
+                BigDecimal.valueOf(amountLeft).setScale(2, RoundingMode.DOWN)
         );
     }
 
