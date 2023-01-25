@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Loan calculator page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+
+<div class="container">
+    <form action="/calculateLoan" method="post">
+        <div class="form-group mb-3">
+            <label for="loanAmount">Loan amount</label>
+            <input type="number"
+                   min="0"
+                   class="form-control"
+                   name="loanAmount"
+                   id="loanAmount"
+                   placeholder="Enter loan amount"
+                   value="100000"
+            >
+        </div>
+        <div class="form-group mb-3">
+
+            <label for="loanLengthYears">Loan length in years</label>
+            <input type="number"
+                   min="1"
+                   max="30"
+                   class="form-control"
+                   name="years"
+                   id="loanLengthYears"
+                   placeholder="Enter loan length in years"
+                   value="30"
+            >
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+</body>
+</html>

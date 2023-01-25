@@ -41,8 +41,6 @@ public class LoanService {
             BigDecimal principalPaymentAmount = precalculatedMonthlyPayment.min(loanAmount);
             BigDecimal interestPaymentAmount = loanAmount.multiply(YEARLY_INTEREST_RATE).divide(new BigDecimal(12), 2, RoundingMode.UP);
 
-            System.out.println("interestPaymentAmount : " + interestPaymentAmount);
-
             loanAmount = loanAmount.subtract(principalPaymentAmount);
 
             LoanPaymentPlanEntry entry = new LoanPaymentPlanEntry(

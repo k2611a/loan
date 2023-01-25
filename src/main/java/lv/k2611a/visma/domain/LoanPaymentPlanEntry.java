@@ -39,6 +39,10 @@ public class LoanPaymentPlanEntry {
         return interestPaymentAmount;
     }
 
+    public BigDecimal getAmountLeft() {
+        return amountLeft;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
